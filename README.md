@@ -34,6 +34,8 @@ Here is a sample config file with the default settings:
     tmp_path:          ./tmp
     build_name:        runner-build
     build_log:         runner-build-errors.log
+    invalid_regexp:    ^\\..*, ^#.*, ^~.*, .*~$, ^flymake.*\\.go
+    valid_regexp:      .*\\.go$
     valid_ext:         .go, .tpl, .tmpl, .html
     build_delay:       600
     colors:            1
@@ -42,6 +44,20 @@ Here is a sample config file with the default settings:
     log_color_runner:  green
     log_color_watcher: magenta
     log_color_app:
+
+## Features
+   regexp monitoring files.(regexp has the highest priority as it can describe more precisely.)
+   default options:
+    (// black list first (logic: AND))
+    (default is suitable for most cases: all hidden files and temporary files and flymake* files)
+    (don't forget to prefix "^" to your regexp(meaning: matches from start))
+    invalid_regexp:    ^\\..*, ^#.*, ^~.*, .*~$, ^flymake.*\\.go
+
+    (// white list (logic: OR))
+    (default is all .go file)
+    valid_regexp:      .*\\.go$
+
+
 
 ## Author
 
@@ -58,4 +74,3 @@ Here is a sample config file with the default settings:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
