@@ -47,13 +47,13 @@ Here is a sample config file with the default settings:
 
 ## Features
    regexp monitoring files.(regexp has the highest priority as it can describe more precisely.)
-   default options:
-    (// black list first (logic: AND))
+
+### black list first (logic: AND)
     (default is suitable for most cases: all hidden files and temporary files and flymake* files)
     (don't forget to prefix "^" to your regexp(meaning: matches from start))
     invalid_regexp:    ^\\..*, ^#.*, ^~.*, .*~$, ^flymake.*\\.go
 
-    (// white list (logic: OR))
+### white list (logic: OR)
     (default is all .go file)
     valid_regexp:      .*\\.go$
 
